@@ -1,0 +1,24 @@
+{
+  "name": "occhi-del-cuore",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "imports": { "#lib/*": "./src/lib/*" },
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "verify": "node scripts/verify-build.mjs",
+    "prepare": "svelte-kit sync",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "4.0.0",
+    "@sveltejs/kit": "3.0.1",
+    "svelte": "5.57.2",
+    "svelte-check": "4.7.6",
+    "typescript": "6.0.3",
+    "vite": "8.3.4"
+  }
+}
