@@ -57,7 +57,8 @@ Per sviluppare una sezione esistente, crea il relativo percorso esplicito
 
 ## Convenzioni
 
-- Codice, nomi, commenti tecnici e messaggi di commit in inglese.
+- Codice, nomi e commenti tecnici in inglese.
+- Commit brevissimi in italiano: modifica comprensibile, gag solo se pertinente.
 - Contenuti del sito e documentazione in italiano.
 - Battute contestuali e citazioni brevi di Boris; le citazioni esatte si verificano.
 - Istruzioni del progetto in [AGENTS.md](../AGENTS.md).
@@ -81,6 +82,18 @@ il progetto senza pubblicare; il deployment avviene tramite Netlify.
 
 ## Stato grafico
 
-La homepage è una prima ricostruzione. Le immagini del cast derivano dalla
-reference fornita; ritagli, font e dettagli delle cornici vanno ancora rifiniti.
-La verifica della pagina completa in browser resta da completare.
+La homepage è una prima ricostruzione. Le foto di Biascica e Fabio usano i nuovi
+fotogrammi forniti, convertiti in WebP da 600 × 600 px; i PNG sorgenti sono
+conservati soltanto in `.local/originals/`, fuori dalla pubblicazione.
+`BurstPortrait.svelte` separa foto e cornice SVG a undici punte, con contorno
+interno ed esterno ricostruiti dalla reference di Biascica. La rotazione della
+cornice è indipendente dalla foto. `FabioPortrait.svelte` ricostruisce la cornice
+della polaroid. Gli altri ritratti sono ancora ritagli provvisori della reference;
+la maschera comune sulle altre due esplosioni resta da verificare.
+La priorità attuale è il desktop e la pulizia degli asset; una versione mobile
+dedicata è rinviata.
+La composizione è stata controllata in Chromium headless, senza JavaScript,
+da 320 a 1600 px: immagini proporzionate, menu raggiungibili e nessun overflow
+orizzontale. La testata e la grafica centrale sono state ridimensionate per
+avvicinarsi alla reference. Restano differenze nei contorni rosa, nei cuori,
+nel fumetto, nei caratteri e nell'inquadratura degli occhi.

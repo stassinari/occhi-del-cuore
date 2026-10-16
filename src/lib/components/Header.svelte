@@ -19,7 +19,7 @@
     justify-content: space-around;
     align-items: center;
     min-height: 0;
-    padding: .15em 3% .55em;
+    padding: 0 3% .2%;
     background: linear-gradient(110deg, #0489b9, #1575b5 55%, #067bb0);
     border-radius: 0 0 15px 15px;
     box-shadow: inset 0 2px 5px #7eb3c0, inset 0 -5px 4px #00527e,

@@ -5,14 +5,17 @@
 Recreate Fabio's fictional Gli Occhi del Cuore fansite from Boris, starting with
 the homepage. Preserve the reference composition, Italian copy, extravagant blue
 and pink graphics, and early-2000s aesthetic. This is a small hobby project.
+Prioritize desktop fidelity and asset cleanup; a dedicated mobile version is
+not currently a priority. Keep existing navigation usable at narrow widths.
 
 ## Language
 
-- Use English for identifiers, filenames, code comments, and commit messages.
+- Use English for identifiers, filenames, and code comments.
 - Use Italian for visitor-facing content, README, and decision records.
 - Keep comments sparse: explain non-obvious reasons rather than restating code.
-- Keep commit messages very short, in English, with a Boris gag when it fits.
-  Prefer a single subject line; avoid explanatory commit bodies.
+- Keep commit messages very short and in Italian. Describe the actual change;
+  add a Boris gag only when it fits that change. Prefer a single subject line
+  and avoid explanatory commit bodies or forced references.
 
 ## Voice
 

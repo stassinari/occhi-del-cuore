@@ -14,7 +14,7 @@ img { max-width: 100%; }
   margin: 0 auto;
   aspect-ratio: 1.605;
   display: grid;
-  grid-template-rows: 14.8% 85.2%;
+  grid-template-rows: 13.3% 86.7%;
   border: 3px ridge #225c93;
   background: linear-gradient(110deg, #075899, #194985 55%, #00568e);
   box-shadow: 0 0 30px #04183c;
