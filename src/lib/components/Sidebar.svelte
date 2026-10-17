@@ -181,7 +181,7 @@
   nav a {
     display: flex;
     align-items: center;
-    gap: 0.45em;
+    gap: 0.25em;
     color: #ecebd3;
     text-decoration: none;
     font-weight: 900;

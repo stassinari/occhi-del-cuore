@@ -120,6 +120,12 @@ dritte. Il tracciato resta un’approssimazione manuale.
 La priorità attuale è il desktop e la pulizia degli asset; una versione mobile
 dedicata è rinviata.
 
+`Heart.svelte` disegna due cuori blu distinti: `large` seleziona quello della
+testata, più aperto e con faccia blu; nei menu la sagoma è più compatta e il
+gradiente più chiaro, con ombra inferiore pronunciata. Tracciati e rilievo SVG
+sono ricostruzioni manuali dai dettagli forniti, senza immagini ritagliate né
+dipendenza dai glifi del sistema. Le misure CSS si regolano nello stesso file.
+
 Per regolare i ritratti, modifica le proprietà di ciascun `BurstPortrait`
 in `src/routes/+page.svelte`: `photoX` sposta la foto a destra aumentando il
 valore, `photoY` la sposta in basso, `photoSize` controlla il lato della foto
