@@ -186,7 +186,7 @@
     text-decoration: none;
     font-weight: 900;
     text-shadow:
-      1px 1px 1px #fff4dc,
+      1px 1px 1px #144d73,
       2px 3px 2px #144d73;
   }
   nav a:hover {
@@ -207,6 +207,10 @@
     .mail {
       height: auto;
     }
+    .right .decorations {
+      height: auto;
+      padding-top: 10px;
+    }
     .polaroid {
       width: min(100%, 170px);
       top: 5px;
@@ -226,7 +230,8 @@
       margin-bottom: 18px;
     }
     .speech-bubble {
-      top: 10px;
+      position: relative;
+      top: auto;
       width: min(100%, 170px);
       height: 110px;
       left: 50%;
@@ -234,12 +239,15 @@
       font-size: 1.5rem;
     }
     .couple {
-      top: 115px;
+      position: relative;
+      top: auto;
+      margin-top: 35px;
       width: min(100%, 175px);
       left: 50%;
       transform: translateX(-50%);
     }
     nav {
+      margin-top: auto;
       font-size: clamp(0.875rem, 3.8vw, 1.4rem);
       padding: 2rem 0.6rem 1.5rem;
       gap: 0.7em;

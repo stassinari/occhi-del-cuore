@@ -124,6 +124,8 @@ Il riquadro SVG segue gli ingombri della cornice trasformata; le foto restano
 dritte. Il tracciato resta un’approssimazione manuale.
 La priorità attuale è il desktop e la pulizia degli asset; una versione mobile
 dedicata è rinviata.
+Su mobile i due menu sono ancorati al fondo dei pannelli; fumetto e cuore
+seguono il flusso della colonna destra, con spazio riservato alla coda.
 
 `Heart.svelte` disegna due cuori blu distinti: `large` seleziona quello della
 testata, più aperto e con faccia blu; nei menu la sagoma è più compatta e il
