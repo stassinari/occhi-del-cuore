@@ -85,7 +85,7 @@ il progetto senza pubblicare; il deployment avviene tramite Netlify.
 
 ## Stato grafico
 
-La homepage è una prima ricostruzione. Le foto di Biascica e Fabio usano i nuovi
+La homepage è una prima ricostruzione. Le foto di Biascica, Corinna, Stanis e Fabio usano i nuovi
 fotogrammi forniti, convertiti in WebP da 600 × 600 px; i PNG sorgenti sono
 conservati soltanto in `.local/originals/`, fuori dalla pubblicazione.
 `BurstPortrait.svelte` separa foto e cornice SVG a undici punte, con contorno
@@ -98,14 +98,20 @@ ombra segue il contorno esterno della stella.
 off-white di busta e fumetto, definito da `--paper-color` in `src/app.css`.
 `PortraitShadows.svelte` mantiene identici i parametri delle ombre di Polaroid e
 stella: interna più marcata, esterna più leggera.
-Gli altri ritratti sono ancora ritagli provvisori della reference;
-il confronto dei contorni è compatibile con la stessa maschera, ruotata al
-centro e specchiata più ruotata a destra. L’applicazione alle altre due foto
-attende i nuovi fotogrammi; il tracciato resta un’approssimazione manuale.
+La busta è senza bordo, con ombra esterna e lembo SVG dello stesso colore
+della carta: i lati partono poco sotto gli angoli superiori e si incontrano
+in una punta arrotondata, evidenziata soltanto da un’ombra morbida.
+Polaroid e busta seguono il flusso della colonna sinistra: i margini della
+busta riservano spazio anche agli angoli ruotati, separandola dalla foto e
+dal menù. La colonna si allunga quando lo spazio disponibile non basta.
+Corinna al centro e Stanis a destra usano la stessa maschera: rotazione
+di −167,7° al centro, flip orizzontale e rotazione di 133,7° a destra.
+Il riquadro SVG segue gli ingombri della cornice trasformata; le foto restano
+dritte. Il tracciato resta un’approssimazione manuale.
 La priorità attuale è il desktop e la pulizia degli asset; una versione mobile
 dedicata è rinviata.
 
-Per regolare il ritratto di Biascica, modifica le proprietà di `BurstPortrait`
+Per regolare i ritratti, modifica le proprietà di ciascun `BurstPortrait`
 in `src/routes/+page.svelte`: `photoX` sposta la foto a destra aumentando il
 valore, `photoY` la sposta in basso, `photoSize` controlla il lato della foto
 quadrata e quindi lo zoom. Sono unità del disegno SVG, non pixel dello schermo;

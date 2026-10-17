@@ -31,20 +31,29 @@
         photoSize={370}
       />
     </div>
-    <img
-      class="cast-center"
-      src="/images/cast-center.webp"
-      alt="Una protagonista nella cornice rosa a esplosione"
-      width="600"
-      height="554"
-    />
-    <img
-      class="cast-right"
-      src="/images/cast-right.webp"
-      alt="Un altro protagonista nella cornice rosa a esplosione"
-      width="600"
-      height="583"
-    />
+    <div class="cast-center">
+      <BurstPortrait
+        id="corinna"
+        src="/images/corinna.webp"
+        label="Corinna nella cornice rosa a esplosione"
+        rotation={-167.7}
+        photoX={80}
+        photoY={85}
+        photoSize={380}
+      />
+    </div>
+    <div class="cast-right">
+      <BurstPortrait
+        id="stanis"
+        src="/images/stanis.webp"
+        label="Stanis nella cornice rosa a esplosione"
+        rotation={133.7}
+        flip="horizontal"
+        photoX={55}
+        photoY={95}
+        photoSize={390}
+      />
+    </div>
   </div>
 </div>
 

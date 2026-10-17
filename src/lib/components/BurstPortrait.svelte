@@ -17,9 +17,21 @@
   const inner = '148,132 247,215 326,141 295,235 419,200 328,275 454,299 321,315 399,368 319,354 372,449 273,376 257,433 242,379 151,459 176,364 85,381 160,326 76,310 154,279 103,226 188,243';
   const flipX = $derived(flip === 'horizontal' ? -1 : 1);
   const flipY = $derived(flip === 'vertical' ? -1 : 1);
+  const viewBox = $derived.by(() => {
+    const angle = rotation * Math.PI / 180;
+    const points = outer.split(' ').map(point => {
+      const [x, y] = point.split(',').map(Number);
+      const dx = (x - 267.5) * flipX;
+      const dy = (y - 292) * flipY;
+      return [267.5 + dx * Math.cos(angle) - dy * Math.sin(angle), 292 + dx * Math.sin(angle) + dy * Math.cos(angle)];
+    });
+    const xs = points.map(point => point[0]);
+    const ys = points.map(point => point[1]);
+    return `${Math.min(...xs)} ${Math.min(...ys)} ${Math.max(...xs) - Math.min(...xs)} ${Math.max(...ys) - Math.min(...ys)}`;
+  });
 </script>
 
-<svg viewBox="18 78 499 428" preserveAspectRatio="none" role="img" aria-label={label} class="burst-portrait">
+<svg {viewBox} preserveAspectRatio="none" role="img" aria-label={label} class="burst-portrait">
   <defs>
     <clipPath id={`${id}-photo`}><polygon points={inner} /></clipPath>
     <linearGradient id={`${id}-pink`} x1="0" y1="0" x2="1" y2="1">
