@@ -1,29 +1,98 @@
 <script lang="ts">
-  import BurstPortrait from '#lib/components/BurstPortrait.svelte';
+  import BurstPortrait from "#lib/components/BurstPortrait.svelte";
 </script>
 
 <svelte:head>
   <title>Gli Occhi del Cuore — Fans Club</title>
-  <meta name="description" content="Il fans club di Fabio. Cuori blu, cornici rosa e Duccio che ha aperto tutto. Dai, dai, dai!" />
+  <meta
+    name="description"
+    content="Il fans club di Fabio. Cuori blu, cornici rosa e Duccio che ha aperto tutto. Dai, dai, dai!"
+  />
 </svelte:head>
 
 <div class="homepage">
   <h1 class="visually-hidden">Gli Occhi del Cuore — Fans Club di Fabio</h1>
-  <img class="cover" src="/images/gli-occhi-del-cuore.webp" alt="Due grandi occhi azzurri sopra un cuore blu con la scritta Gli Occhi del Cuore" width="660" height="400" fetchpriority="high" />
+  <img
+    class="cover"
+    src="/images/gli-occhi-del-cuore.webp"
+    alt="Due grandi occhi azzurri sopra un cuore blu con la scritta Gli Occhi del Cuore"
+    width="660"
+    height="400"
+    fetchpriority="high"
+  />
   <div class="cast" aria-label="I protagonisti di Gli Occhi del Cuore">
-    <div class="cast-left"><BurstPortrait id="biascica" src="/images/biascica.webp" label="Biascica nella cornice rosa a esplosione" /></div>
-    <img class="cast-center" src="/images/cast-center.webp" alt="Una protagonista nella cornice rosa a esplosione" width="600" height="554" />
-    <img class="cast-right" src="/images/cast-right.webp" alt="Un altro protagonista nella cornice rosa a esplosione" width="600" height="583" />
+    <div class="cast-left">
+      <BurstPortrait
+        id="biascica"
+        src="/images/biascica.webp"
+        label="Biascica nella cornice rosa a esplosione"
+        photoX={45}
+        photoY={95}
+        photoSize={370}
+      />
+    </div>
+    <img
+      class="cast-center"
+      src="/images/cast-center.webp"
+      alt="Una protagonista nella cornice rosa a esplosione"
+      width="600"
+      height="554"
+    />
+    <img
+      class="cast-right"
+      src="/images/cast-right.webp"
+      alt="Un altro protagonista nella cornice rosa a esplosione"
+      width="600"
+      height="583"
+    />
   </div>
 </div>
 
 <style>
-  .homepage { position: relative; width: 100%; height: 100%; overflow: hidden; background: #173a7a; }
-  .cover { display: block; width: 100%; height: 92%; object-fit: fill; }
-  .cast { position: absolute; inset: 0; pointer-events: none; }
-  .cast > * { position: absolute; object-fit: fill; max-width: none; }
-  .cast-left { left: 0; bottom: 1%; width: 34%; height: 36%; }
-  .cast-center { left: 31%; bottom: 0; width: 34%; height: 37%; }
-  .cast-right { right: 0; bottom: 1%; width: 35%; height: 41%; }
-  @media (max-width: 640px) { .homepage { aspect-ratio: 1.2; } }
+  .homepage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #173a7a;
+  }
+  .cover {
+    display: block;
+    width: 100%;
+    height: 92%;
+    object-fit: fill;
+  }
+  .cast {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .cast > * {
+    position: absolute;
+    object-fit: fill;
+    max-width: none;
+  }
+  .cast-left {
+    left: 0;
+    bottom: 1%;
+    width: 34%;
+    height: 36%;
+  }
+  .cast-center {
+    left: 31%;
+    bottom: 0;
+    width: 34%;
+    height: 37%;
+  }
+  .cast-right {
+    right: 0;
+    bottom: 1%;
+    width: 35%;
+    height: 41%;
+  }
+  @media (max-width: 640px) {
+    .homepage {
+      aspect-ratio: 1.2;
+    }
+  }
 </style>

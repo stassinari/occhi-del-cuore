@@ -66,8 +66,11 @@ Per sviluppare una sezione esistente, crea il relativo percorso esplicito
 
 ## Sito statico
 
-Tutte le pagine sono prerenderizzate con l'adapter statico. `csr = false` mantiene
-la navigazione HTML senza idratazione. Possiamo abilitare JavaScript su singole
+Tutte le pagine sono prerenderizzate con l'adapter statico. `csr = dev` abilita
+JavaScript e aggiornamenti automatici durante `npm run dev`; la build pubblicata
+mantiene la navigazione HTML senza script e senza idratazione. Dopo il passaggio
+da `csr = false`, ricarica una volta la pagina già aperta per attivare gli
+aggiornamenti automatici. Possiamo abilitare JavaScript su singole
 pagine se una futura interazione lo richiede, mantenendo il prerendering.
 
 Guestbook, chat, forum, contatti e iscrizione sono nomi del sito originale:
@@ -86,12 +89,27 @@ La homepage è una prima ricostruzione. Le foto di Biascica e Fabio usano i nuov
 fotogrammi forniti, convertiti in WebP da 600 × 600 px; i PNG sorgenti sono
 conservati soltanto in `.local/originals/`, fuori dalla pubblicazione.
 `BurstPortrait.svelte` separa foto e cornice SVG a undici punte, con contorno
-interno ed esterno ricostruiti dalla reference di Biascica. La rotazione della
-cornice è indipendente dalla foto. `FabioPortrait.svelte` ricostruisce la cornice
+interno ed esterno ricostruiti dalla reference di Biascica. Rotazione e flip
+orizzontale o verticale agiscono sulla cornice e mantengono la foto dritta.
+Il filetto rosa chiaro interno ha lo stesso spessore di quello scuro esterno
+(2 unità SVG). Un’ombra SVG cade dentro il ritaglio della foto; una seconda
+ombra segue il contorno esterno della stella.
+`FabioPortrait.svelte` ricostruisce la cornice
 della polaroid. Gli altri ritratti sono ancora ritagli provvisori della reference;
-la maschera comune sulle altre due esplosioni resta da verificare.
+il confronto dei contorni è compatibile con la stessa maschera, ruotata al
+centro e specchiata più ruotata a destra. L’applicazione alle altre due foto
+attende i nuovi fotogrammi; il tracciato resta un’approssimazione manuale.
 La priorità attuale è il desktop e la pulizia degli asset; una versione mobile
 dedicata è rinviata.
+
+Per regolare il ritratto di Biascica, modifica le proprietà di `BurstPortrait`
+in `src/routes/+page.svelte`: `photoX` sposta la foto a destra aumentando il
+valore, `photoY` la sposta in basso, `photoSize` controlla il lato della foto
+quadrata e quindi lo zoom. Sono unità del disegno SVG, non pixel dello schermo;
+parti da variazioni di 5–10 unità. La dimensione si modifica mantenendo fisso
+l’angolo superiore sinistro: potrebbe servire correggere anche X e Y.
+Con `npm run dev`, salva il file per vedere il risultato nel browser.
+Controlla che la foto continui a riempire le punte del foro della cornice.
 La composizione è stata controllata in Chromium headless, senza JavaScript,
 da 320 a 1600 px: immagini proporzionate, menu raggiungibili e nessun overflow
 orizzontale. La testata e la grafica centrale sono state ridimensionate per
