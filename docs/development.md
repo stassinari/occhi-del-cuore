@@ -94,8 +94,11 @@ orizzontale o verticale agiscono sulla cornice e mantengono la foto dritta.
 Il filetto rosa chiaro interno ha lo stesso spessore di quello scuro esterno
 (2 unità SVG). Un’ombra SVG cade dentro il ritaglio della foto; una seconda
 ombra segue il contorno esterno della stella.
-`FabioPortrait.svelte` ricostruisce la cornice
-della polaroid. Gli altri ritratti sono ancora ritagli provvisori della reference;
+`FabioPortrait.svelte` ricostruisce la Polaroid senza bordi grigi; usa lo stesso
+off-white di busta e fumetto, definito da `--paper-color` in `src/app.css`.
+`PortraitShadows.svelte` mantiene identici i parametri delle ombre di Polaroid e
+stella: interna più marcata, esterna più leggera.
+Gli altri ritratti sono ancora ritagli provvisori della reference;
 il confronto dei contorni è compatibile con la stessa maschera, ruotata al
 centro e specchiata più ruotata a destra. L’applicazione alle altre due foto
 attende i nuovi fotogrammi; il tracciato resta un’approssimazione manuale.

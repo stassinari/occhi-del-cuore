@@ -44,7 +44,7 @@
     display: grid; place-items: center;
     transform: rotate(-15deg);
     color: #a65385;
-    background: linear-gradient(150deg, #eee8d6, #d9d3c4);
+    background: var(--paper-color);
     border: 5px ridge #eee9de;
     box-shadow: 2px 5px 4px #15608d;
     text-decoration: none;
@@ -62,13 +62,13 @@
     position: absolute; top: 6%; left: -5%; width: 108%; height: 35%;
     border-radius: 50%; display: grid; align-content: center; text-align: center;
     font-size: clamp(1.3rem, 2.75vw, 2.8rem); line-height: 1.05;
-    font-weight: normal; color: #a45c83; background: #e2d5c9;
+    font-weight: normal; color: #a45c83; background: var(--paper-color);
     box-shadow: 2px 3px 5px #206292;
     text-shadow: 1px 2px 2px #bc8b9f;
   }
   .speech-bubble::after {
     content: ''; position: absolute; top: 89%; left: 31%; width: 23%; height: 31%;
-    background: #e2d5c9; clip-path: polygon(26% 0, 100% 0, 0 100%);
+    background: var(--paper-color); clip-path: polygon(26% 0, 100% 0, 0 100%);
   }
   .couple { position: absolute; top: 47%; left: -34%; width: 119%; height: auto; max-width: none; }
   nav { display: grid; gap: .6em; padding: 0 6% 21%; font-size: clamp(.75rem, 2vw, 2rem); }

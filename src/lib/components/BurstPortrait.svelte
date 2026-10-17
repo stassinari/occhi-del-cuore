@@ -1,4 +1,6 @@
 <script lang="ts">
+  import PortraitShadows from './PortraitShadows.svelte';
+
   let { id, src, label, rotation = 0, flip = 'none', photoX = 70, photoY = 90, photoSize = 390 }: {
     id: string;
     src: string;
@@ -25,16 +27,7 @@
       <stop offset=".5" stop-color="#b65096" />
       <stop offset="1" stop-color="#cb7bb0" />
     </linearGradient>
-    <filter id={`${id}-outer-shadow`} x="-15%" y="-15%" width="140%" height="140%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="6" dy="9" stdDeviation="5" flood-color="#07142e" flood-opacity=".65" />
-    </filter>
-    <filter id={`${id}-inner-shadow`} x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur" />
-      <feOffset in="blur" dx="5" dy="7" result="offset" />
-      <feComposite in="SourceAlpha" in2="offset" operator="out" result="inset" />
-      <feFlood flood-color="#180d20" flood-opacity=".85" />
-      <feComposite in2="inset" operator="in" />
-    </filter>
+    <PortraitShadows {id} />
   </defs>
   <g filter={`url(#${id}-outer-shadow)`}>
     <g transform={`translate(267.5 292) rotate(${rotation}) scale(${flipX} ${flipY}) translate(-267.5 -292)`}>
