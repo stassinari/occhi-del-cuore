@@ -96,8 +96,13 @@ Il filetto rosa chiaro interno ha lo stesso spessore di quello scuro esterno
 ombra segue il contorno esterno della stella.
 `FabioPortrait.svelte` ricostruisce la Polaroid senza bordi grigi; usa lo stesso
 off-white di busta e fumetto, definito da `--paper-color` in `src/app.css`.
-`PortraitShadows.svelte` mantiene identici i parametri delle ombre di Polaroid e
-stella: interna più marcata, esterna più leggera.
+`CouplePortrait.svelte` ricostruisce il cuore della sidebar destra con due
+tracciati Bézier indipendenti, seguendo l’asimmetria della reference. La foto
+Stanis–Corinna è un WebP 600 × 600 px, qualità 82, senza metadati; l’originale
+è in `.local/originals/`. Il cuore usa lo stesso gradiente rosa e gli stessi
+filetti interno ed esterno delle stelle (2 unità SVG).
+`PortraitShadows.svelte` mantiene identici i parametri delle ombre di Polaroid,
+stella e cuore: interna più marcata, esterna più leggera.
 La busta è senza bordo, con ombra esterna e lembo SVG dello stesso colore
 della carta: i lati partono poco sotto gli angoli superiori e si incontrano
 in una punta arrotondata, evidenziata soltanto da un’ombra morbida.
@@ -119,6 +124,9 @@ parti da variazioni di 5–10 unità. La dimensione si modifica mantenendo fisso
 l’angolo superiore sinistro: potrebbe servire correggere anche X e Y.
 Con `npm run dev`, salva il file per vedere il risultato nel browser.
 Controlla che la foto continui a riempire le punte del foro della cornice.
+Per la coppia, le stesse proprietà si regolano su `CouplePortrait` in
+`src/lib/components/Sidebar.svelte`: il disegno misura 600 × 497 unità,
+la foto rimane quadrata. Controlla la copertura di entrambi i lobi e della punta.
 La composizione è stata controllata in Chromium headless, senza JavaScript,
 da 320 a 1600 px: immagini proporzionate, menu raggiungibili e nessun overflow
 orizzontale. La testata e la grafica centrale sono state ridimensionate per
