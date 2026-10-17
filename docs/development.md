@@ -85,6 +85,11 @@ il progetto senza pubblicare; il deployment avviene tramite Netlify.
 
 ## Stato grafico
 
+Lo sfondo comune è blu tinta unita `rgb(0, 50, 150)`, definito da
+`--background-color` in `src/app.css`: copre pagina, area centrale e spazi
+intorno alle sidebar. La cornice esterna del sito è rimossa; testata e
+pannelli dei menu mantengono gradienti e rilievi.
+
 La homepage è una prima ricostruzione. Le foto di Biascica, Corinna, Stanis e Fabio usano i nuovi
 fotogrammi forniti, convertiti in WebP da 600 × 600 px; i PNG sorgenti sono
 conservati soltanto in `.local/originals/`, fuori dalla pubblicazione.
