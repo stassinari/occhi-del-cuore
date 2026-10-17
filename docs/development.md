@@ -88,6 +88,10 @@ il progetto senza pubblicare; il deployment avviene tramite Netlify.
 La homepage è una prima ricostruzione. Le foto di Biascica, Corinna, Stanis e Fabio usano i nuovi
 fotogrammi forniti, convertiti in WebP da 600 × 600 px; i PNG sorgenti sono
 conservati soltanto in `.local/originals/`, fuori dalla pubblicazione.
+La cover usa la ricostruzione generata con ChatGPT e fornita dall’utente,
+convertita in WebP a qualità 85, senza metadati e alla risoluzione originale
+di 1448 × 1086 px. `gli-occhi-del-cuore-no-title.webp` conserva anche la variante
+senza scritta, ottimizzata allo stesso modo e non utilizzata nelle pagine.
 `BurstPortrait.svelte` separa foto e cornice SVG a undici punte, con contorno
 interno ed esterno ricostruiti dalla reference di Biascica. Rotazione e flip
 orizzontale o verticale agiscono sulla cornice e mantengono la foto dritta.

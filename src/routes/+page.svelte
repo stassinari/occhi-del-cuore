@@ -16,8 +16,8 @@
     class="cover"
     src="/images/gli-occhi-del-cuore.webp"
     alt="Due grandi occhi azzurri sopra un cuore blu con la scritta Gli Occhi del Cuore"
-    width="660"
-    height="400"
+    width="1448"
+    height="1086"
     fetchpriority="high"
   />
   <div class="cast" aria-label="I protagonisti di Gli Occhi del Cuore">
