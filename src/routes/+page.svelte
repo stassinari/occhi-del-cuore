@@ -1,14 +1,12 @@
 <script lang="ts">
   import BurstPortrait from "#lib/components/BurstPortrait.svelte";
+  import SocialMeta from "#lib/components/SocialMeta.svelte";
 </script>
 
-<svelte:head>
-  <title>Gli Occhi del Cuore — Fans Club</title>
-  <meta
-    name="description"
-    content="Il fans club di Fabio. Cuori blu, cornici rosa e Duccio che ha aperto tutto. Dai, dai, dai!"
-  />
-</svelte:head>
+<SocialMeta
+  title="Gli Occhi del Cuore — Fans Club"
+  description="Hanno sospeso la prima serie alla terza puntata. Fabio ci ha fatto un sito."
+/>
 
 <div class="homepage">
   <h1 class="visually-hidden">Gli Occhi del Cuore — Fans Club di Fabio</h1>

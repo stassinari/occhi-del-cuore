@@ -21,6 +21,40 @@ for (const page of pages) {
   const html = await readFile(page, 'utf8');
   if (/<(?:script|form)\b/i.test(html)) failures.push(`${relative(root, page)}: script or form in static output`);
   const documentUrl = new URL(relative(root, page), 'https://static.invalid/');
+  const metadata = [...html.matchAll(/<meta\s+[^>]*>/g)].map(([tag]) =>
+    Object.fromEntries([...tag.matchAll(/([\w:]+)="([^"]*)"/g)].map(([, key, value]) => [key, value])));
+  const meta = (key) => {
+    const matches = metadata.filter(tag => tag.property === key || tag.name === key);
+    if (matches.length !== 1 || !matches[0].content) {
+      failures.push(`${relative(root, page)}: missing or duplicate ${key}`);
+    }
+    return matches[0]?.content;
+  };
+  const title = meta('og:title');
+  const description = meta('og:description');
+  if (title !== html.match(/<title>(.*?)<\/title>/)?.[1] || description !== meta('description')) {
+    failures.push(`${relative(root, page)}: inconsistent sharing title or description`);
+  }
+  const siteUrl = 'https://fabio-occhidelcuore.it';
+  const pagePath = documentUrl.pathname.replace(/index\.html$/, '');
+  if (meta('og:url') !== `${siteUrl}${pagePath}`) {
+    failures.push(`${relative(root, page)}: incorrect sharing URL`);
+  }
+  const image = meta('og:image');
+  if (image !== `${siteUrl}/images/social-preview.jpg` || meta('og:image:type') !== 'image/jpeg'
+    || meta('og:image:width') !== '1200' || meta('og:image:height') !== '630'
+    || meta('twitter:card') !== 'summary_large_image' || meta('twitter:image') !== image
+    || meta('twitter:title') !== title || meta('twitter:description') !== description
+    || meta('twitter:image:alt') !== meta('og:image:alt')) {
+    failures.push(`${relative(root, page)}: inconsistent sharing image or card metadata`);
+  }
+  try {
+    const imagePath = new URL(image).pathname;
+    const bytes = await readFile(join(root, imagePath));
+    if (bytes[0] !== 0xff || bytes[1] !== 0xd8) throw new Error('Not a JPEG');
+  } catch {
+    failures.push(`${relative(root, page)}: missing or invalid sharing image`);
+  }
   for (const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
     const url = new URL(match[1], documentUrl);
     if (url.origin !== documentUrl.origin) {
@@ -43,4 +77,4 @@ for (const page of pages) {
   }
 }
 if (failures.length) throw new Error(failures.join('\n'));
-console.log(`Verified ${pages.length} static pages and ${references} local references. No scripts, forms, or external references.`);
+console.log(`Verified ${pages.length} static pages, sharing metadata, and ${references} local references. No scripts, forms, or external references.`);

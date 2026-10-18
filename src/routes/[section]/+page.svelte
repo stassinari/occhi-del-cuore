@@ -1,13 +1,18 @@
 <script lang="ts">
   import type { PageData } from './$types';
+  import SocialMeta from '#lib/components/SocialMeta.svelte';
   let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>
-  <title>{data.section.label} — Gli Occhi del Cuore</title>
   <meta name="robots" content="noindex" />
-  <meta name="description" content={data.copy.status} />
 </svelte:head>
+
+<SocialMeta
+  title={`${data.section.label} — Gli Occhi del Cuore`}
+  description={data.copy.status}
+  path={`/${data.section.slug}/`}
+/>
 
 <article class="section-page">
   <p class="eyebrow">{data.copy.eyebrow}</p>

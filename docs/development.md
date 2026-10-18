@@ -85,6 +85,26 @@ il progetto senza pubblicare; il deployment avviene tramite Netlify.
 
 ## Stato grafico
 
+### Anteprima di condivisione
+
+`SocialMeta.svelte` gestisce titolo, descrizione, Open Graph e Twitter Card.
+Homepage e sezioni passano i propri testi e percorsi; l'immagine è comune.
+I metadati sono nell'HTML prerenderizzato, senza JavaScript nel browser.
+Il dominio pubblico è `https://fabio-occhidelcuore.it`: se cambia, aggiorna
+il componente e il controllo in `scripts/verify-build.mjs`.
+
+`static/images/social-preview.jpg` è una cartolina JPEG di 1200 × 630 px,
+composta con cover e ritratti esistenti. Per cambiare l'immagine basta sostituire
+il file; se cambiano formato o dimensioni, aggiorna anche i metadati e la verifica.
+I sorgenti di lavoro rimangono in `.local/`, senza essere necessari alla build.
+
+Dopo il deploy, incolla l'URL pubblico in un controllore Open Graph e nelle chat
+che ti interessano. Le piattaforme possono conservare la vecchia anteprima:
+per una nuova immagine usa un nuovo nome file e aggiorna `imageUrl` e la verifica.
+Il controllo locale verifica metadati e presenza del JPEG, ma non le cache social.
+
+### Composizione e immagini
+
 Lo sfondo comune è blu tinta unita `rgb(0, 50, 150)`, definito da
 `--background-color` in `src/app.css`: copre pagina, area centrale e spazi
 intorno alle sidebar. La cornice esterna del sito è rimossa; testata e
