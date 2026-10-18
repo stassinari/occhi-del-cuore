@@ -13,7 +13,9 @@ npm ci
 npm run dev
 ```
 
-Vite stampa l'indirizzo locale, normalmente `http://localhost:5173`.
+Il server di sviluppo usa `http://127.0.0.1:5173`.
+L'anteprima della build usa `http://127.0.0.1:4173`, su una porta distinta.
+Se una porta è occupata, Vite si ferma invece di sceglierne un'altra.
 Per verificare e provare la versione statica:
 
 ```sh
@@ -26,6 +28,10 @@ npm run preview
 La build è in `build/`. `verify` controlla collegamenti e asset dell'HTML
 generato, oltre all'assenza di script, form e riferimenti esterni. La CI esegue
 gli stessi controlli: sul set si smarmella, sui link un po' meno.
+
+Dopo una nuova build, riavvia l'eventuale `npm run preview` già aperto:
+potrebbe conservare riferimenti ai CSS della build precedente. Per lavorare
+sui sorgenti usa `npm run dev` e il suo indirizzo, non quello della preview.
 
 ## Struttura e Svelte
 
