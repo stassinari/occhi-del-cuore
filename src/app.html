@@ -4,7 +4,16 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#087caf" />
+    <meta name="theme-color" content="#003296" />
+    <style>
+      /* Paint the page background before external styles arrive. */
+      :root { --background-color: rgb(0, 50, 150); background: var(--background-color); }
+      body { margin: 0; }
+      @view-transition { navigation: auto; }
+      ::view-transition-group(root),
+      ::view-transition-old(root),
+      ::view-transition-new(root) { animation: none; }
+    </style>
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="off">

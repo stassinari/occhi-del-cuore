@@ -79,6 +79,15 @@ da `csr = false`, ricarica una volta la pagina già aperta per attivare gli
 aggiornamenti automatici. Possiamo abilitare JavaScript su singole
 pagine se una futura interazione lo richiede, mantenendo il prerendering.
 
+Per attenuare il flash fra documenti, `src/app.html` imposta subito lo sfondo
+blu con CSS inline, prima dei fogli esterni. Nello stesso blocco,
+`@view-transition { navigation: auto; }` mantiene la pagina precedente visibile
+fino alla successiva nei browser compatibili. Le animazioni sono disabilitate:
+il cambio è immediato e non introduce dissolvenze o movimento. I browser senza
+supporto conservano la navigazione HTML e lo sfondo iniziale blu; non aggiungiamo
+JavaScript per emulare la transizione. Il comportamento va provato sulla build:
+in sviluppo è attivo il router client di SvelteKit.
+
 Guestbook, chat, forum, contatti e iscrizione sono nomi del sito originale:
 le destinazioni attuali sono pagine scherzose statiche. Non raccolgono messaggi
 o dati e non hanno account, backend, database o moderazione.
@@ -112,7 +121,7 @@ Il controllo locale verifica metadati e presenza del JPEG, ma non le cache socia
 ### Composizione e immagini
 
 Lo sfondo comune è blu tinta unita `rgb(0, 50, 150)`, definito da
-`--background-color` in `src/app.css`: copre pagina, area centrale e spazi
+`--background-color` in `src/app.html`: copre pagina, area centrale e spazi
 intorno alle sidebar. La cornice esterna del sito è rimossa; testata e
 pannelli dei menu mantengono gradienti e rilievi.
 

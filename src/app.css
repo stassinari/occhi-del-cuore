@@ -1,13 +1,10 @@
 :root {
-  --background-color: rgb(0, 50, 150);
   --paper-color: #e2d5c9;
   font-family: Georgia, 'Times New Roman', serif;
   color: #f3efda;
-  background: var(--background-color);
   font-synthesis: none;
 }
 * { box-sizing: border-box; }
-body { margin: 0; }
 a { color: inherit; }
 a:focus-visible { outline: 3px solid #fff1b4; outline-offset: 5px; }
 img { max-width: 100%; }
