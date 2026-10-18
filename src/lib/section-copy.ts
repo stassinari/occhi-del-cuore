@@ -8,43 +8,43 @@ type SectionCopy = {
 
 export const sectionCopy: Record<Section['slug'], SectionCopy> = {
   guestbook: {
-    eyebrow: 'F4 — basito',
-    status: 'Il guestbook è rimasto basito.',
-    body: 'Fabio voleva raccogliere i complimenti. Gli sceneggiatori hanno scritto soltanto la reazione. Per il momento, nessuno può aggiungere una battuta.'
+    eyebrow: 'Il libro degli ospiti',
+    status: 'F4. F4. F4.',
+    body: 'Abbiamo chiesto agli ospiti un commento sul sito. Basiti. Tutti basiti. Gli sceneggiatori sostengono che sia una reazione molto positiva.'
   },
   chat: {
-    eyebrow: 'Dai, dai, dai!',
-    status: 'La conversazione è fuori campo.',
-    body: 'Fabio parla del fans club. Stanis parla di Stanis. Qui, per ora, trovi solo il silenzio: non si inviano messaggi.'
+    eyebrow: 'Il metodo Duccio',
+    status: 'La chat segue il metodo Duccio.',
+    body: '«Io non parlo proprio con nessuno, io mi faccio i cazzi miei.» Nessun messaggio in entrata, nessun messaggio in uscita. Lui sta benissimo. Chiuditi a riccio!'
   },
   forum: {
-    eyebrow: 'La locura',
-    status: 'Gli sceneggiatori sono al ristorante.',
-    body: 'Tre sceneggiatori, un pranzo e nessuna discussione scritta. Il forum, per ora, è tutto qui.'
+    eyebrow: 'La trama',
+    status: 'Tre famiglie. Molte domande.',
+    body: 'Ricchi buoni, ricchi cattivi, poveri un po’ buoni e un po’ cattivi. Il forum doveva fare chiarezza. Per ora è tutto un po’ nebuloso.'
   },
   contattami: {
     eyebrow: 'La posta di Fabio',
-    status: 'La busta c’è. La posta no.',
-    body: 'La scenografia ha fatto il suo. La produzione non ha previsto un indirizzo: da questa pagina non parte nessuna lettera.'
+    status: 'La giusta telefonata, al giusto momento, alla giusta persona.',
+    body: 'Fabio ha aperto una pagina contatti. René gli ha spiegato che non funziona così.'
   },
   fotogallery: {
-    eyebrow: 'Apri tutto!',
-    status: 'Duccio ha smarmellato anche le foto.',
-    body: 'La luce c’è, le cornici pure. Stiamo ancora cercando qualcuno che sia rimasto a fuoco.'
+    eyebrow: 'La fotografia',
+    status: 'La fotografia non deve essere troppo bella.',
+    body: 'Se no la gente cambia canale. Duccio ha garantito che qui non corriamo questo rischio.'
   },
   iniziative: {
-    eyebrow: 'La festa del grazie',
-    status: 'Fabio sta organizzando.',
-    body: 'Abbiamo il nome della festa. Sul programma, gli sceneggiatori non rispondono. Un’iniziativa alla volta.'
+    eyebrow: 'Un omaggio',
+    status: 'Buona festa del Grazie!',
+    body: 'Il tacchino costava troppo. Abbiamo messo le quaglie. Per il resto, qualsiasi somiglianza con feste americane è un omaggio.'
   },
   news: {
-    eyebrow: 'Gli Occhi del Cuore',
-    status: 'Nessuna notizia dal set.',
-    body: 'Stanis avrebbe già pronto un comunicato su Stanis. Fabio preferisce aspettare una notizia sul fans club.'
+    eyebrow: 'Dal palinsesto',
+    status: 'I greci si stanno comprando il format.',
+    body: 'Fabio considera questa notizia una conferma del successo della serie. La sospensione alla terza puntata resta un dettaglio di palinsesto.'
   },
   iscriviti: {
     eyebrow: 'Il fans club di Fabio',
-    status: 'Se sei arrivato fin qui, sei già dei nostri.',
-    body: 'Niente tessera, niente modulo, niente email. Basta guardare con gli occhi del cuore. Gli sceneggiatori approvano: una scena in meno da scrivere.'
+    status: 'Benvenuto nella fabbrica dei sogni.',
+    body: 'Niente tessera, niente quota, niente email. Se però qualcuno ti chiede di portare i caffè, ti hanno scambiato per lo stagista.'
   }
 };
