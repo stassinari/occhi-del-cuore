@@ -19,8 +19,12 @@ const failures = [];
 let references = 0;
 for (const page of pages) {
   const html = await readFile(page, 'utf8');
-  if (/<(?:script|form)\b/i.test(html)) failures.push(`${relative(root, page)}: script or form in static output`);
   const documentUrl = new URL(relative(root, page), 'https://static.invalid/');
+  const scripts = [...html.matchAll(/<script\b[^>]*>[\s\S]*?<\/script>/gi)].map(([tag]) => tag);
+  const enhancement = scripts[0]?.match(/^<script src="([^"]+)" defer(?:="")?><\/script>$/);
+  if (scripts.length !== 1 || !enhancement
+    || new URL(enhancement[1], documentUrl).href !== 'https://static.invalid/scripts/secret-video.js'
+    || /<form\b/i.test(html)) failures.push(`${relative(root, page)}: unexpected script or form in static output`);
   const metadata = [...html.matchAll(/<meta\s+[^>]*>/g)].map(([tag]) =>
     Object.fromEntries([...tag.matchAll(/([\w:]+)="([^"]*)"/g)].map(([, key, value]) => [key, value])));
   const meta = (key) => {
@@ -77,4 +81,4 @@ for (const page of pages) {
   }
 }
 if (failures.length) throw new Error(failures.join('\n'));
-console.log(`Verified ${pages.length} static pages, sharing metadata, and ${references} local references. No scripts, forms, or external references.`);
+console.log(`Verified ${pages.length} static pages, sharing metadata, and ${references} local references. Only the secret video script; no forms or external references.`);

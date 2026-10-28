@@ -33,6 +33,8 @@ not currently a priority. Keep existing navigation usable at narrow widths.
 - Use SvelteKit and Svelte with TypeScript and a static adapter.
 - Prerender every public route. Do not add a server runtime or an SPA fallback.
 - Keep pages functional without client JavaScript; add it only for useful interactions.
+  The secret video uses a small local script and a native dialog, without Svelte hydration;
+  keep the direct video link working without JavaScript.
 - Reuse the shared site frame and navigation instead of duplicating markup.
 - Keep assets local. Do not introduce external fonts, analytics, or remote runtime dependencies.
 - Guestbook, chat, forum, contact, and signup must not collect submissions or personal data.

@@ -3,5 +3,5 @@ import { dev } from '$app/env';
 export const prerender = true;
 export const trailingSlash = 'always';
 
-// Enable hot updates locally while keeping the published pages free of scripts.
+// Enable hot updates locally without hydrating the published pages.
 export const csr = dev;

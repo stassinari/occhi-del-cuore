@@ -26,7 +26,7 @@ npm run preview
 ```
 
 La build è in `build/`. `verify` controlla collegamenti e asset dell'HTML
-generato, oltre all'assenza di script, form e riferimenti esterni. La CI esegue
+generato, oltre all'assenza di form, riferimenti esterni e script diversi da quello del video segreto. La CI esegue
 gli stessi controlli: sul set si smarmella, sui link un po' meno.
 
 Dopo una nuova build, riavvia l'eventuale `npm run preview` già aperto:
@@ -74,7 +74,8 @@ Per sviluppare una sezione esistente, crea il relativo percorso esplicito
 
 Tutte le pagine sono prerenderizzate con l'adapter statico. `csr = dev` abilita
 JavaScript e aggiornamenti automatici durante `npm run dev`; la build pubblicata
-mantiene la navigazione HTML senza script e senza idratazione. Dopo il passaggio
+mantiene la navigazione HTML senza idratazione. Un piccolo script locale gestisce
+soltanto il video segreto, senza caricare il client di Svelte. Dopo il passaggio
 da `csr = false`, ricarica una volta la pagina già aperta per attivare gli
 aggiornamenti automatici. Possiamo abilitare JavaScript su singole
 pagine se una futura interazione lo richiede, mantenendo il prerendering.
@@ -117,6 +118,23 @@ Dopo il deploy, incolla l'URL pubblico in un controllore Open Graph e nelle chat
 che ti interessano. Le piattaforme possono conservare la vecchia anteprima:
 per una nuova immagine usa un nuovo nome file e aggiorna `imageUrl` e la verifica.
 Il controllo locale verifica metadati e presenza del JPEG, ma non le cache social.
+
+### Il segreto di Fabio
+
+La Polaroid della sidebar apre `static/videos/fabio-secret.mp4` in un dialog
+nativo senza cornice o oscuramento della pagina, largo l’80% del viewport
+(e ridotto quando l’altezza disponibile lo richiede). La × ed ESC lo chiudono;
+il focus torna alla foto e l’audio si interrompe. Fino a 640 px il video usa tutta la larghezza disponibile, sempre limitata
+dall’altezza del viewport; la × ha un’area di tocco di 44 px. Sono disponibili i controlli
+nativi del lettore; senza JavaScript la foto collega direttamente all’MP4.
+
+`static/scripts/secret-video.js` aggiunge l’interazione senza idratare Svelte.
+Il video non ha un `src` finché non viene aperto, per evitare download iniziali.
+Il clic viene intercettato in fase di cattura, prima del router di sviluppo,
+così il collegamento MP4 non cambia l’URL della pagina.
+L’estratto locale H.264/AAC pesa circa 2 MB; la durata audio è 13,250 s.
+L’ultima immagine è prolungata per escludere i fotogrammi della sigla.
+Il sorgente dell’episodio è escluso da Git e non serve alla build.
 
 ### Composizione e immagini
 

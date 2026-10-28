@@ -13,7 +13,15 @@
 >
   <div class="decorations" class:mail={side === "left"}>
     {#if side === "left"}
-      <div class="polaroid"><FabioPortrait /></div>
+      <div class="polaroid">
+        <a class="secret-trigger" href="/videos/fabio-secret.mp4" aria-label="Scopri il segreto di Fabio" aria-haspopup="dialog" data-secret-video>
+          <FabioPortrait />
+        </a>
+      </div>
+      <dialog class="secret-video" aria-label="Il segreto di Fabio" data-secret-dialog>
+        <button class="secret-close" type="button" aria-label="Chiudi il video" autofocus>×</button>
+        <video controls playsinline preload="none" aria-label="Il video segreto di Fabio"></video>
+      </dialog>
       <a class="envelope" href="/contattami/">
         <svg class="envelope-flap" viewBox="0 0 300 194" aria-hidden="true">
           <defs>
@@ -97,6 +105,52 @@
   .mail .polaroid {
     position: relative;
     top: auto;
+  }
+  .secret-trigger {
+    display: block;
+    transition: rotate 120ms;
+  }
+  .secret-trigger:hover { rotate: -1deg; }
+  .secret-trigger:focus-visible {
+    outline: 2px dashed var(--paper-color);
+    outline-offset: 2px;
+  }
+  .secret-video {
+    width: min(80vw, calc((100dvh - 96px) * 16 / 9));
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    border: 0;
+    overflow: visible;
+    background: transparent;
+  }
+  .secret-video::backdrop { background: transparent; }
+  .secret-video video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+  .secret-close {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    background: #000;
+    color: #fff;
+    font: 26px/1 Arial, sans-serif;
+    cursor: pointer;
+  }
+  .secret-close:focus-visible { outline: 2px solid #fff; outline-offset: -3px; }
+  @media (pointer: coarse) {
+    .secret-close { width: 44px; height: 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .secret-trigger { transition: none; }
+    .secret-trigger:hover { rotate: none; }
   }
   .mail .envelope {
     position: relative;
@@ -196,6 +250,9 @@
   }
 
   @media (max-width: 640px) {
+    .secret-video {
+      width: min(100vw, calc((100dvh - 96px) * 16 / 9));
+    }
     .sidebar {
       margin: 1rem 0.65rem;
       min-height: 380px;
